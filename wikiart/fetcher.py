@@ -247,6 +247,8 @@ class WikiArtFetcher:
         url = painting['image']
         # Remove label "!Large.jpg".
         url = ''.join(url.split('!')[:-1])
+        if 'artistUrl' not in painting:
+            return
         filename = os.path.join(settings.BASE_FOLDER,
                                 'images',
                                 painting['artistUrl'],
